@@ -1,7 +1,5 @@
 # A 3D VIRTUAL TRY-ON METHOD WITH GLOBAL-LOCAL ALIGNMENT AND DIFFUSION MODEL
 
-## Requirements
-```python >= 3.8.0, pytorch == 1.6.0, torchvision == 0.7.0```
 
 ## Data Preparation
 
