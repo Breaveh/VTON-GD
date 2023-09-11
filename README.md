@@ -35,15 +35,15 @@ python test.py --model GLA --name GLA --dataroot path/to/data --datalist test_pa
 python test.py --model P --name P --dataroot path/to/data --warproot path/to/warp --datalist test_pairs --results_dir results
 ```
 
-### 4. Testing RDG
-```sh
-python test.py --model RDG --name RDG --dataroot path/to/data --warproot path/to/warp --datalist test_pairs --results_dir results
-```
-
-### 5. Testing DM
+### 4. Testing DM
 ```sh
 cd DM
-python run.py -p train -c config/inpainting_MPV.json
+python run.py -p test -c config/inpainting_MPV.json
+```
+
+### 5. Testing RDG
+```sh
+python test.py --model RDG --name RDG --dataroot path/to/data --warproot path/to/warp --datalist test_pairs --results_dir results
 ```
 
 ### 6. Getting colored point cloud and Remeshing
@@ -65,44 +65,48 @@ Now you should get the point cloud file prepared for remeshing under `results/al
 
 With the pre-processed MPV3D dataset, you can train the model from scratch by folllowing the three steps below:
 
-### 1. Train MTM module
+### 1. Train SGN
 
 ```sh
-python train.py --model MTM --name MTM --dataroot path/to/MPV3D/data --datalist train_pairs --checkpoints_dir path/for/saving/model
+python train.py --model SGN --name SGN --dataroot path/to/MPV3D/data --datalist train_pairs --checkpoints_dir path/for/saving/model
 ```
 
 then run the command below to obtain the `--warproot` (here refers to the `--results_dir`) which is necessary for the other two modules:
 ```sh
-python test.py --model MTM --name MTM --dataroot path/to/MPV3D/data --datalist train_pairs --checkpoints_dir path/to/saved/MTMmodel --results_dir path/for/saving/MTM/results
+python test.py --model SGN --name SGN --dataroot path/to/MPV3D/data --datalist train_pairs --checkpoints_dir path/to/saved/MTMmodel --results_dir path/for/saving/MTM/results
 ```
 
-### 2. Train DRM module
+### 2. Train GLA
 
 ```sh
-python train.py --model DRM --name DRM --dataroot path/to/MPV3D/data --warproot path/to/MTM/warp/cloth --datalist train_pairs --checkpoints_dir path/for/saving/model
+python train.py --model GLA --name GLA --dataroot path/to/MPV3D/data --datalist train_pairs --checkpoints_dir path/for/saving/model
 ```
 
-### 3. Train TFM module
+then run the command below to obtain the `--warproot` (here refers to the `--results_dir`) which is necessary for the other two modules:
+```sh
+python test.py --model GLA --name GLA --dataroot path/to/MPV3D/data --datalist train_pairs --checkpoints_dir path/to/saved/MTMmodel --results_dir path/for/saving/MTM/results
+```
+
+### 3. Train P
 
 ```sh
-python train.py --model TFM --name TFM --dataroot path/to/MPV3D/data --warproot path/to/MTM/warp/cloth --datalist train_pairs --checkpoints_dir path/for/saving/model
+python train.py --model P --name P --dataroot path/to/MPV3D/data --warproot path/to/warp --datalist train_pairs --checkpoints_dir path/for/saving/model
+```
+
+### 4. Train DM
+
+```sh
+cd DM
+python run.py -p train -c config/inpainting_MPV.json
+```
+### 5. Train RDG
+
+```sh
+python train.py --model RDG --name RDG --dataroot path/to/MPV3D/data --warproot path/to/warp --datalist train_pairs --checkpoints_dir path/for/saving/model
 ```
 
 (See options/base_options.py and options/train_options.py for more training options.)
 
 ## License
-The use of this code and the MPV3D dataset is RESTRICTED to non-commercial research and educational purposes.
-
-## Citation
-If our code is helpful to your research, please cite:
-```
-@InProceedings{M3D-VTON,
-    author    = {Zhao, Fuwei and Xie, Zhenyu and Kampffmeyer, Michael and Dong, Haoye and Han, Songfang and Zheng, Tianxiang and Zhang, Tao and Liang, Xiaodan},
-    title     = {M3D-VTON: A Monocular-to-3D Virtual Try-On Network},
-    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-    month     = {October},
-    year      = {2021},
-    pages     = {13239-13249}
-}
-```
+The use of this code is RESTRICTED to non-commercial research and educational purposes.
 
