@@ -60,9 +60,6 @@ Now you should get the point cloud file prepared for remeshing under `results/al
 
 - Possion Remeshing: Go to Filters --> Remeshing, Simplification and Reconstruction --> Surface Reconstruction: Screen Possion (set reconstruction depth = 9)
 
-Now the final 3D try-on result should be obtained:
-
-![Try-on Result](/assets/meshlab_snapshot.png "Try-on Result")
 
 ## Training on MPV3D Dataset
 
