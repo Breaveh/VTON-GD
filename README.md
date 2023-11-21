@@ -108,6 +108,7 @@ python train.py --model RDG --name RDG --dataroot path/to/MPV3D/data --warproot 
 ## Failure Case
 Backpacks can cause self occlusion and unconventional posture of the human body. Our model currently cannot solve this problem very well. This issue is currently an unresolved challenge in the Try On field, and our future work will focus on it.
 (left: Human, right: Failed results).
+
 ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example1.png) ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example1tryon.png)
 
 ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example2.png) ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example2tryon.png)
