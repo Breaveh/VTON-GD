@@ -105,6 +105,10 @@ python train.py --model RDG --name RDG --dataroot path/to/MPV3D/data --warproot 
 
 (See options/base_options.py and options/train_options.py for more training options.)
 
+## 
+![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example1.png)
+
+
 ## License
 The use of this code is RESTRICTED to non-commercial research and educational purposes.
 
