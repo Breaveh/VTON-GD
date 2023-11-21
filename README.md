@@ -1,5 +1,14 @@
 # A 3D VIRTUAL TRY-ON METHOD WITH GLOBAL-LOCAL ALIGNMENT AND DIFFUSION MODEL
 
+## Failure Case
+Bags pose a unique challenge by introducing self-occlusion and causing unconventional body postures when trying on clothing items. Currently, our model faces limitations in effectively addressing this issue. It's important to note that handling self-occlusion is a challenging problem, and it remains unresolved in the virtual try-on task. As part of our future work, we are going to address this challenge and improve our model's performance in such scenarios. (Left: Human, Right: Unsuccessful results).
+
+![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example1.png) ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example1tryon.png)
+
+![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example2.png) ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example2tryon.png)
+
+![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example3.png) ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example3tryon.png)
+
 
 ## Data Preparation
 
@@ -104,16 +113,6 @@ python train.py --model RDG --name RDG --dataroot path/to/MPV3D/data --warproot 
 ```
 
 (See options/base_options.py and options/train_options.py for more training options.)
-
-## Failure Case
-Backpacks can cause self occlusion and unconventional posture of the human body. Our model currently cannot solve this problem very well. This issue is currently an unresolved challenge in the Try On field, and our future work will focus on it.
-(left: Human, right: Failed results).
-
-![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example1.png) ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example1tryon.png)
-
-![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example2.png) ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example2tryon.png)
-
-![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example3.png) ![Image text](https://github.com/Breaveh/VTON-GD/blob/main/img/example3tryon.png)
 
 ## License
 The use of this code is RESTRICTED to non-commercial research and educational purposes.
